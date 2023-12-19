@@ -1,0 +1,65 @@
+<html>
+    <head>
+<title>Sales-Person</title>
+
+    </head>    
+    <body>
+        <h1 style="text-align: center;">
+            <u>Sales-Person</u>
+        </h1>
+        <div class="container">
+        <table class="table table-bordred table-stripped" border="3" >
+            <thead style="background-color: rgb(65, 196, 196);">
+<th style="height: 50px;">ID</th>
+<th>FirstName</th>
+<th>LastName</th>
+<th>Email</th>
+<th>salary</th>
+<th>Meta quote</th> 
+       </thead>
+
+       <tr>
+           <td>101</td>
+           <td>Rajesham</td>
+           <td>Dumpeti</td>
+           <td>rajesham5949gmail.com</td>
+           <td>500000</td>
+           <td>NO</td>
+       </tr>
+       <tr>
+           <td>{{person1.id}}</td>
+           <td>{{person1.firstName}}</td>
+           <td>{{person1.lastName}}</td>
+           <td>{{person1.email}}</td>
+           <td>{{person1.salary}}</td>
+           
+           <td *ngIf = "person1.salary > 50000; else elseblock" > YES </td>
+           <ng-template #elseblock>NO</ng-template>
+   
+          
+       </tr>
+       <tr *ngFor ="let p of personlist" [ngClass] = "{'metaquote' : p.salary >= 150000 , 'nonmetaquote' : p.salary < 110000 }">
+        <td>{{p.id}}</td>
+        <td>{{p.firstName | uppercase}}</td>
+        <td>{{p.lastName | uppercase}}</td>
+        <td>{{p.email}}</td>
+        <td>{{p.salary | currency : 'INR'}}</td>
+
+        <td *ngIf = "p.salary > 20000; else elseblock" > YES </td>
+        <ng-template #elseblock>NO</ng-template>
+
+    </tr>
+    </table><br><br>
+
+<form #spForm="ngForm" (ngSubmit)="onSubmit()">
+ID : <input type = "text" name ="id" [(ngModel)] = "personModel.id"/><br><br>
+firstName : <input type = "text" name ="fname"[(ngModel)] = "personModel.firstName"/><br><br>
+lastName : <input type = "text" name ="lname"[(ngModel)] = "personModel.lastName"/><br><br>
+Email : <input type = "text" name = "gmail"[(ngModel)] = "personModel.email"/><br><br>
+salary : <input type = "text" name ="salary"[(ngModel)] = "personModel.salary"/><br><br>
+<input type ="submit" value="Register" name="s1" class="btn btn-info" style="background-color: lightblue;"/><br>
+
+</form>
+    </div>
+    </body>
+</html>

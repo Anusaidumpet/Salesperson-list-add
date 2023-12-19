@@ -1,0 +1,28 @@
+body{
+    padding-top: 55px;
+    columns: center;
+}
+
+table{
+    font-size: 26px;
+    font-family: monospace;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+.center{
+    margin-left: auto;
+    margin-right: auto;
+}
+.metaquote{
+    background-color: aqua;
+}
+.nonmetaquote{
+    background-color: coral;
+}
+.submit{
+    background-color: aqua;
+}
+form{
+    margin-left: 210px;
+}
